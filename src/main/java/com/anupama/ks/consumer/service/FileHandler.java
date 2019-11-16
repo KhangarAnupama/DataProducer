@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class FileHandler {
 
 	Logger logger = Logger.getLogger(FileHandler.class.getName());
-
+	String registerMac = "00:0a:95:9d:68:16";
 
 	public void writeData(String dataPoint) {
 		String filePath = createFile();
@@ -38,11 +38,12 @@ public class FileHandler {
 	} 
 
 
-	public String readData() {
+	public DeviceTO readData() {
 		String fileName = "/var/dataPoint/geoPoints.txt";
 		File file = new File(fileName);
 		FileReader fr;
 		String line = null;
+		DeviceTO deviceTO = new DeviceTO();
 		try {
 			fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
@@ -54,7 +55,16 @@ public class FileHandler {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return line;
+		deviceTO.setData(line);
+		deviceTO.setMacAddress(registerMac);
+		return deviceTO;
+	}
+	
+	public boolean isAuthentic(String macAddress) {
+		boolean auth = false;
+		if(registerMac.equals(macAddress))
+			auth =  true;
+		return auth;
 	}
 	
 	private String createFile() {
