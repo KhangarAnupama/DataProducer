@@ -1,4 +1,4 @@
-package com.anupama.ks.consumer.DataConsumer;
+package com.anupama.ks.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
