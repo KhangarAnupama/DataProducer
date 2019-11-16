@@ -1,9 +1,6 @@
 package com.anupama.ks.consumer.service;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Logger;
@@ -38,28 +35,6 @@ public class FileHandler {
 	} 
 
 
-	public DeviceTO readData() {
-		String fileName = "/var/dataPoint/geoPoints.txt";
-		File file = new File(fileName);
-		FileReader fr;
-		String line = null;
-		DeviceTO deviceTO = new DeviceTO();
-		try {
-			fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-			line = br.readLine();
-//			while((line = br.readLine()) != null){
-//				System.out.println(line);
-				
-//			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		deviceTO.setData(line);
-		deviceTO.setMacAddress(registerMac);
-		return deviceTO;
-	}
-	
 	public boolean isAuthentic(String macAddress) {
 		boolean auth = false;
 		if(registerMac.equals(macAddress))

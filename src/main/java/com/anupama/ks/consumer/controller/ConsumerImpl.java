@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anupama.ks.consumer.service.DeviceTO;
 import com.anupama.ks.consumer.service.FileHandler;
 
+
 @RestController
-public class DataHandler {
+public class ConsumerImpl {
 
 	@RequestMapping(value = "/data/consumer", method = RequestMethod.GET,
 			produces = MediaType.ALL_VALUE)
@@ -26,15 +26,6 @@ public class DataHandler {
 		return data;
 	}
 
-	@RequestMapping(value = "/data/producer", method = RequestMethod.POST,
-			produces = MediaType.APPLICATION_JSON_VALUE)
-	public DeviceTO produceData(@RequestParam(value = "mac", required = true) String macAddress) {
-		FileHandler handler = new FileHandler();
-		DeviceTO deviceData = null;
-		if(handler.isAuthentic(macAddress)) {
-			deviceData = handler.readData();
-		}
-		return deviceData;
-	}
+
 
 }
