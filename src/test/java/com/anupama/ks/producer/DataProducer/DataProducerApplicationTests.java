@@ -1,10 +1,10 @@
-package com.anupama.ks.consumer.DataConsumer;
+package com.anupama.ks.producer.DataProducer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DataConsumerApplicationTests {
+class DataProducerApplicationTests {
 
 	@Test
 	void contextLoads() {
