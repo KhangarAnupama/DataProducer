@@ -1,4 +1,4 @@
-package com.anupama.ks.consumer.service;
+package com.anupama.ks.producer.util;
 
 import java.io.File;
 import java.io.FileWriter;
