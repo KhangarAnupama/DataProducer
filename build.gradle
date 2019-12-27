@@ -19,9 +19,11 @@ dependencies {
 	}
 	// https://mvnrepository.com/artifact/org.apache.kafka/kafka
 	compile group: 'org.apache.kafka', name: 'kafka_2.12', version: '2.3.1'
-
-	
 }
+
+tasks.withType(Jar) {
+        destinationDir = file("$rootDir/")
+    }
  
 test {
 	useJUnitPlatform()
